@@ -1,0 +1,19 @@
+body{
+  background-color: aqua;
+}
+
+.project-list{
+  height: 600px;
+}
+
+.project-title-input{
+  height: 35px;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show{
+  visibility: visible;
+}
