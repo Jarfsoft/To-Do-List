@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("alert('Hello, world!');\n\n//# sourceURL=webpack://To-Do-List/./src/index.js?");
+eval("// import createHome from './home';\r\n// import  createNew from './project'\r\n// createHome()\r\n\r\nconst addProjectBtn = document.querySelector('#new-project-btn');\r\nconst newProjectSection = document.querySelector('#new-project-section')\r\nnewProjectSection.classList.add('hide');\r\n\r\naddProjectBtn.addEventListener('click' , ()=>{\r\nnewProjectSection.classList.add('show');\r\nnewProjectSection.classList.remove('hide');\r\n} )\r\n\n\n//# sourceURL=webpack://To-Do-List/./src/index.js?");
 
 /***/ })
 

@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>To Do List</title>
 </head>
 <body>
+
+    <header>
+       <nav class="navbar navbar-light bg-light">
+       <div class="container-fluid">
+       <a class="navbar-brand text-dark h1">
+        TO DO LIST
+       </a>
+        </div>
+    </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3 bg-dark project-list d-flex flex-column">
+                <h5 class="text-warning text-center p-2">Project's List</h5>
+            </div>
+             <div class="col-6 " id="new-project-section">
+              <div class="card">
+                  <div class="card-body">
+                     <h5 class="card-title">New Project</h5>
+                     <input id="project-title" class="project-title-input " type="text" placeholder="Project Title">
+                     <a class="card-link btn btn-success">Add Project</a>
+                 </div>
+              </div>
+            </div>
+              <div class="col-3">
+               <button class="btn btn-primary" id="new-project-btn">Add New Project</button>
+            </div>
+        </div>
+    </div>
     <script src="main.js"> </script>
 </body>
 </html>
