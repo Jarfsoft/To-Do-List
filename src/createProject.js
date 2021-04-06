@@ -27,7 +27,7 @@ export function printProject() {
   const projectName = document.createElement('h5');
   for (let project of projectsArray) {
     projectName.innerText = project.title;
-    projectName.classList = 'text-center text-primary bg-warning border border-light rounded m-1 p-1';
+    projectName.classList = 'text-center text-dark bg-warning border border-light rounded m-1 p-1 project-name-card';
     projectName.addEventListener('click', () => {
       const tasks = document.querySelector('#new-task-card');
       const proj = document.querySelector('#new-project-task');
