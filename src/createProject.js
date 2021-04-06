@@ -16,12 +16,18 @@ class Builder{
   }
 }
 
+
+// Create New project
 export function addNewProject(){
+  let taskArray = [];
   const title = document.querySelector('#project-title').value;
-  const newProject = new Builder(title);
+  const newProject = new Builder(title , taskArray );
   newProject.addProject();
+  localStorage.setItem(newProject.title, JSON.stringify(newProject))
 }
 
+
+// Print the projects on the project's list:
 export function printProject() {
   const projectList = document.querySelector('.project-list');
   const projectName = document.createElement('h5');
@@ -38,10 +44,11 @@ export function printProject() {
       tasks.classList.add('show');
     });
     projectList.appendChild(projectName);
-
   }
 }
 
+
+// Create Task list inside the project:
  export function taskList(){
   const projectName = document.querySelector('#new-project-task').innerText;
   const project = projectsArray.find(name => name.title == projectName);
@@ -77,7 +84,6 @@ export function printProject() {
     taskCardHeader.innerText = `Task Title : ${task.title}`;
     taskCardDescription.innerText = `Task Details: ${task.description}`;
     taskCardDate.innerText = `Due date : ${task.dueDate}` 
-    // taskCardPriority.innerText = (task.priority === true) ? 'On' : 'Off' ;
     if (task.priority === "1")
      {
       taskCardPriority.innerText = "Not That Important";
@@ -95,7 +101,6 @@ export function printProject() {
       taskCardPriority.classList.add('bg-danger');
       taskCardPriority.classList.remove('bg-warning', 'bg-light')
     }
-  }
+   }
   }
 
-// export default addNewProject

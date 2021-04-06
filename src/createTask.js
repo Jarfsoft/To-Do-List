@@ -7,7 +7,7 @@ class Task{
   }
 }
 
-
+// Create new task and push it inside its project:
 export function newTask(){
   const title = document.querySelector('#task-title').value;
   const description = document.querySelector('#task-description').value;
@@ -17,5 +17,13 @@ export function newTask(){
   return newT;}
 
 
+// Clear inputs of the task:
+export function clearInputs(){
+  document.querySelector('#task-title').value = '';
+  document.querySelector('#task-description').value = '';
+  document.querySelector('#dueDate').value = '';
+  document.querySelector('#priority').value = '';
+}
 
-export default newTask;
+
+export  default newTask
