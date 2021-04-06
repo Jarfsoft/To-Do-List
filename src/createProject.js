@@ -1,6 +1,6 @@
 import newTask from './createTask';
 
-let projectsArray = [];
+export let projectsArray = [];
 if(localStorage.length != 0)
 {
   projectsArray = JSON.parse(localStorage.getItem("array"));
@@ -12,11 +12,13 @@ class Builder{
     this.title = title
     this.taskArray = [];
   }
+
   addProject(){
     projectsArray.push(this);
     localStorage.clear();
     localStorage.setItem('array', JSON.stringify(projectsArray));
   }
+
   addTask(){
     this.taskArray.push(newTask());
     localStorage.clear();
@@ -37,15 +39,19 @@ export function addNewProject(){
 // Print the projects on the project's list:
 export function printProject() {
   console.log(projectsArray);
-  const projectList = document.querySelector('.project-list');
-  const projectName = document.createElement('h5');
-  for (let project of projectsArray) {
-    projectName.innerText = project.title;
+ 
+  // for (let project in projectsArray) 
+  for (let i = 0 ; i < projectsArray.length ; i++)
+  {
+    const projectList = document.querySelector('.project-list');
+    const projectName = document.createElement('h5');
+    projectName.innerText = projectsArray[i].title;
     projectName.classList = 'text-center text-dark bg-warning border border-light rounded m-1 p-1 project-name-card';
     projectName.addEventListener('click', () => {
+      taskList()
       const tasks = document.querySelector('#new-task-card');
       const proj = document.querySelector('#new-project-task');
-      proj.textContent = project.title;
+      proj.textContent = projectsArray[i].title;
       tasks.classList.remove('hide');
       document.querySelector('#new-project-section').classList.add('hide');
       document.querySelector('#new-project-section').classList.remove('show');
@@ -86,32 +92,34 @@ export function printProject() {
   taskCardDiv.appendChild(taskCardDescription);
   taskCardDiv.appendChild(taskCardDate);
   taskCardDiv.appendChild(taskCardPriority);
-
   
   // Loop to create task cards:
-  for (let task of project.taskArray) {
-    taskCardHeader.innerText = `Task Title : ${task.title}`;
-    taskCardDescription.innerText = `Task Details: ${task.description}`;
-    taskCardDate.innerText = `Due date : ${task.dueDate}` 
-    if (task.priority === "1")
+  // for (let task of project.taskArray)
+
+  if (project) {
+  for (let i = 0 ; i < projectsArray.length ; i++)
+  {
+    taskCardHeader.innerText = `Task Title : ${projectsArray[i].taskArray[i].title}`;
+    taskCardDescription.innerText = `Task Details: ${projectsArray[i].taskArray[i].description}`;
+    taskCardDate.innerText = `Due date : ${projectsArray[i].taskArray[i].dueDate}` 
+    if (projectsArray[i].taskArray[i].priority === "1")
      {
       taskCardPriority.innerText = "Not That Important";
       taskCardPriority.classList.add('bg-light');
       taskCardPriority.classList.remove('bg-danger', 'bg-warning')
     }
-     else if (task.priority === "2") 
+     else if (projectsArray[i].taskArray[i].priority === "2") 
      {
       taskCardPriority.innerText = "Important";
       taskCardPriority.classList.add('bg-warning');
       taskCardPriority.classList.remove('bg-danger', 'bg-light')
     } 
-    else if (task.priority === "3")  {
+    else if (projectsArray[i].taskArray[i].priority === "3")  {
       taskCardPriority.innerText = "Very Important";
       taskCardPriority.classList.add('bg-danger');
       taskCardPriority.classList.remove('bg-warning', 'bg-light')
     }
-   }
-   
+   } }
   }
 
 export default projectsArray;

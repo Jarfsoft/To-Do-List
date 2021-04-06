@@ -1,7 +1,8 @@
-import {addNewProject , projectsArray , printProject , taskList , addProjectToLocal}  from './createProject';
+import {addNewProject , projectsArray , printProject , taskList , Builder }  from './createProject';
 import {newTask , clearInputs} from './createTask';
 
 printProject();
+// taskList()
 
 // Declatre main elements: 
 const newProjectBtn = document.querySelector('#new-project-btn');
@@ -64,13 +65,16 @@ newTaskBtn.addEventListener('click', () => {
     fieldsRequired.classList.remove('hide');
   }
   else {
-    project.addTask();
-    let storageTask = JSON.parse(localStorage.getItem(projectName))
-    storageTask.taskArray.push(project.taskArray);
-    localStorage.setItem(projectName, storageTask)
+    project.taskArray.push(newTask());
+    localStorage.clear();
+    localStorage.setItem('array', JSON.stringify(projectsArray));
+    // project.addTask();
+    // let storageTask = JSON.parse(localStorage.getItem(projectName))
+    // storageTask.taskArray.push(project.taskArray);
+    // localStorage.setItem(projectName, storageTask)
     clearInputs();
     taskList();
-    console.log(project.taskArray);
+    // console.log(project.taskArray);
     fieldsRequired.classList.add('hide');
     fieldsRequired.classList.remove('show');
   }

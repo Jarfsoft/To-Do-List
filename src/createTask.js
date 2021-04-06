@@ -14,7 +14,8 @@ export function newTask(){
   const dueDate = document.querySelector('#dueDate').value;
   const priority = document.querySelector('#priority').value;
   const newT = new Task(title,description,dueDate,priority);
-  return newT;}
+  return newT
+  ;}
 
 
 // Clear inputs of the task:
