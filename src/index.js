@@ -46,8 +46,6 @@ addProjectBtn.addEventListener('click' , ()=>{
   newProjectSection.classList.remove('show');
   document.querySelector('#project-title').value = '';
   }
-   
-  console.log(JSON.parse(localStorage.getItem(title)))
 })
 
 
@@ -68,22 +66,13 @@ newTaskBtn.addEventListener('click', () => {
     project.addTask();
     let storageTask = JSON.parse(localStorage.getItem(projectName))
     storageTask.taskArray.push(project.taskArray);
-    localStorage.setItem(projectName, JSON.stringify(storageTask))
-    console.log(storageTask);
+    localStorage.setItem(projectName, storageTask)
     clearInputs();
     taskList();
     console.log(project.taskArray);
     fieldsRequired.classList.add('hide');
     fieldsRequired.classList.remove('show');
-    // console.log(JSON.parse(localStorage.getItem('projects')))
   }
 });
-
-
-
-
-// Add Html h5 for validation text
-// Add validation
-
 
 

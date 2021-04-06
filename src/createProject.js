@@ -23,6 +23,7 @@ export function addNewProject(){
   const title = document.querySelector('#project-title').value;
   const newProject = new Builder(title , taskArray );
   newProject.addProject();
+  console.log(projectsArray)
   localStorage.setItem(newProject.title, JSON.stringify(newProject))
 }
 
@@ -79,6 +80,7 @@ export function printProject() {
   taskCardDiv.appendChild(taskCardDate);
   taskCardDiv.appendChild(taskCardPriority);
 
+  
   // Loop to create task cards:
   for (let task of project.taskArray) {
     taskCardHeader.innerText = `Task Title : ${task.title}`;
@@ -102,5 +104,6 @@ export function printProject() {
       taskCardPriority.classList.remove('bg-warning', 'bg-light')
     }
    }
+   
   }
 
