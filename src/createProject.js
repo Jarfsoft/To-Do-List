@@ -1,7 +1,11 @@
 import newTask from './createTask';
 
-export let projectsArray = [];
-
+let projectsArray = [];
+if(localStorage.length != 0)
+{
+  projectsArray = JSON.parse(localStorage.getItem("array"));
+  console.log(projectsArray);
+}
 
 class Builder{
   constructor(title){
@@ -9,10 +13,14 @@ class Builder{
     this.taskArray = [];
   }
   addProject(){
-    projectsArray.push(this)
+    projectsArray.push(this);
+    localStorage.clear();
+    localStorage.setItem('array', JSON.stringify(projectsArray));
   }
   addTask(){
     this.taskArray.push(newTask());
+    localStorage.clear();
+    localStorage.setItem('array', JSON.stringify(projectsArray));
   }
 }
 
@@ -23,13 +31,12 @@ export function addNewProject(){
   const title = document.querySelector('#project-title').value;
   const newProject = new Builder(title , taskArray );
   newProject.addProject();
-  console.log(projectsArray)
-  localStorage.setItem(newProject.title, JSON.stringify(newProject))
 }
 
 
 // Print the projects on the project's list:
 export function printProject() {
+  console.log(projectsArray);
   const projectList = document.querySelector('.project-list');
   const projectName = document.createElement('h5');
   for (let project of projectsArray) {
@@ -107,3 +114,4 @@ export function printProject() {
    
   }
 
+export default projectsArray;

@@ -1,6 +1,7 @@
 import {addNewProject , projectsArray , printProject , taskList , addProjectToLocal}  from './createProject';
 import {newTask , clearInputs} from './createTask';
 
+printProject();
 
 // Declatre main elements: 
 const newProjectBtn = document.querySelector('#new-project-btn');
