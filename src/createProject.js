@@ -42,4 +42,60 @@ export function printProject() {
   }
 }
 
+ export function taskList(){
+  const projectName = document.querySelector('#new-project-task').innerText;
+  const project = projectsArray.find(name => name.title == projectName);
+  const taskMainDiv = document.createElement('div');
+  const taskCardHeader = document.createElement('div');
+  const taskCardDiv = document.createElement('div');
+  const taskCardTitle = document.createElement('h1');
+  const taskCardDescription = document.createElement('p');
+  const taskCardDate =  document.createElement('p');
+  const taskCardPriority = document.createElement('div')
+
+  // Style
+  taskMainDiv.classList = 'card m-1 task-card';
+  taskCardHeader.classList = 'card-header bg-primary';
+  taskCardDiv.classList = 'card-body';
+  taskCardTitle.classList = 'card-title';
+  taskCardDescription.classList = 'card-text';
+  taskCardDate.classList = 'card-text';
+  taskCardPriority.classList = 'card-body'
+
+
+  // Structure:
+  document.querySelector('.col-6').appendChild(taskMainDiv);
+  taskMainDiv.appendChild(taskCardHeader);
+  taskMainDiv.appendChild(taskCardDiv);
+  taskCardDiv.appendChild(taskCardTitle);
+  taskCardDiv.appendChild(taskCardDescription);
+  taskCardDiv.appendChild(taskCardDate);
+  taskCardDiv.appendChild(taskCardPriority);
+
+  // Loop to create task cards:
+  for (let task of project.taskArray) {
+    taskCardHeader.innerText = `Task Title : ${task.title}`;
+    taskCardDescription.innerText = `Task Details: ${task.description}`;
+    taskCardDate.innerText = `Due date : ${task.dueDate}` 
+    // taskCardPriority.innerText = (task.priority === true) ? 'On' : 'Off' ;
+    if (task.priority === "1")
+     {
+      taskCardPriority.innerText = "Not That Important";
+      taskCardPriority.classList.add('bg-light');
+      taskCardPriority.classList.remove('bg-danger', 'bg-warning')
+    }
+     else if (task.priority === "2") 
+     {
+      taskCardPriority.innerText = "Important";
+      taskCardPriority.classList.add('bg-warning');
+      taskCardPriority.classList.remove('bg-danger', 'bg-light')
+    } 
+    else if (task.priority === "3")  {
+      taskCardPriority.innerText = "Very Important";
+      taskCardPriority.classList.add('bg-danger');
+      taskCardPriority.classList.remove('bg-warning', 'bg-light')
+    }
+  }
+  }
+
 // export default addNewProject

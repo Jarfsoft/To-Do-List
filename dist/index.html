@@ -30,22 +30,24 @@
                   <div class="card-body">
                     <h5 id="new-project-task" class="card-title"></h5>
                      <h5 class="card-title">New Task</h5>
-                     <input id="task-title" class="task-title-input " type="text" placeholder="Task Title">
-                     <input id="task-description" type="text" placeholder="Description">
-                     <input id="dueDate" type="date">
-                     <select id="priority">
+                     <input id="task-title" class="task-title-input " type="text" placeholder="Task Title" required>
+                     <input id="task-description" type="text" placeholder="Description" required>
+                     <input id="dueDate" type="date" required>
+                     <select id="priority" required>
                          <option value="3">Very Important</option>
                          <option value="2">Important</option>
                          <option value="1">Not That Important</option>
                      </select>
                      <a class="card-link btn btn-success" id="add-task-btn">Add Task</a>
+                     <h5 class="text-danger" id="required-fields">All fields are required</h5>
                  </div>
               </div>
-              <div class="card" id="new-project-section">
+              <div class="card text-center" id="new-project-section">
                   <div class="card-body">
                      <h5 class="card-title">New Project</h5>
                      <input id="project-title" class="project-title-input " type="text" placeholder="Project Title">
                      <a class="card-link btn btn-success" id="add-project-btn">Add Project</a>
+                     <h5 class="text-danger" id="required-title">Title is required</h5>
                  </div>
               </div>
             </div>
