@@ -22,7 +22,8 @@ editTaskDiv.classList.add('hide');
 
 function makeLoop() {
   const projectCards = document.querySelectorAll('.project-name-card');
-  for (const card of projectCards) {
+  for (let i = 0; i < projectCards.length; i += 1) {
+    const card = projectCards[i];
     card.addEventListener('click', () => {
       const taskCard = document.querySelector('#new-task-card');
       const projectTitleInTaskCard = document.querySelector('#new-project-task');
@@ -31,7 +32,7 @@ function makeLoop() {
       document.querySelector('#new-project-section').classList.add('hide');
       document.querySelector('#new-project-section').classList.remove('show');
       taskCard.classList.add('show');
-      const project = projectsArray.find((name) => name.title == projectTitleInTaskCard.textContent);
+      const project = projectsArray.find((n) => n.title === projectTitleInTaskCard.textContent);
       const index = projectsArray.indexOf(project);
       loadTasks(index);
     });
@@ -82,7 +83,7 @@ newTaskBtn.addEventListener('click', () => {
   const dueDate = document.querySelector('#dueDate').value;
   const priority = document.querySelector('#priority').value;
   const projectName = document.querySelector('#new-project-task').innerText;
-  const project = projectsArray.find((name) => name.title == projectName);
+  const project = projectsArray.find((name) => name.title === projectName);
   if (!title || !description || !dueDate || !priority) {
     fieldsRequired.classList.add('show');
     fieldsRequired.classList.remove('hide');

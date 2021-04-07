@@ -1,8 +1,10 @@
-export let projectsArray = [];
+export const projectsArray = [];
 
 function setProjects() {
   if (localStorage.length !== 0) {
-    projectsArray = JSON.parse(localStorage.getItem('array'));
+    const temp = JSON.parse(localStorage.getItem('array'));
+    projectsArray.splice(0, projectsArray.length);
+    for (let i = 0; i < temp.length; i += 1) projectsArray.push(temp[i]);
   }
 }
 
@@ -82,7 +84,8 @@ export function loadTasks(index) {
     x.remove(x.selectedIndex);
     x = document.querySelector('.task-box');
   }
-  for (const task of projectsArray[index].taskArray) {
+  for (let i = 0; i < projectsArray[index].taskArray.length; i += 1) {
+    const task = projectsArray[index].taskArray[i];
     // Create elemetns:
     const taskMainDiv = document.createElement('div');
     const taskCardHeader = document.createElement('div');

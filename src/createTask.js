@@ -7,6 +7,13 @@ class Task {
   }
 }
 
+export function clearInputs() {
+  document.querySelector('#task-title').value = '';
+  document.querySelector('#task-description').value = '';
+  document.querySelector('#dueDate').value = '';
+  document.querySelector('#priority').value = '';
+}
+
 export function newTask() {
   const title = document.querySelector('#task-title').value;
   const description = document.querySelector('#task-description').value;
@@ -15,14 +22,6 @@ export function newTask() {
   const newT = new Task(title, description, dueDate, priority);
   clearInputs();
   return newT;
-}
-
-
-export function clearInputs() {
-  document.querySelector('#task-title').value = '';
-  document.querySelector('#task-description').value = '';
-  document.querySelector('#dueDate').value = '';
-  document.querySelector('#priority').value = '';
 }
 
 export default newTask;
