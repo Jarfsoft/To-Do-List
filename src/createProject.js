@@ -37,30 +37,33 @@ export function addNewProject(){
 
 
 // Print the projects on the project's list:
+// We will make it: add new project:
 export function printProject() {
-  console.log(projectsArray);
- 
+   
   // for (let project in projectsArray) 
+  // for (let i = 0 ; i < projectsArray.length ; i++)
+  // {
+    const title = document.querySelector('#project-title').value;
+    let projectList = document.querySelector('.project-list');
+    let projectName = document.createElement('h5');
+    projectName.innerText = title;
+    projectName.classList = 'text-center text-dark bg-warning border border-light rounded m-1 p-1 project-name-card';
+    projectList.appendChild(projectName);
+  }
+
+
+
+// We need to isolate loading last projects from adding new projects:
+export function loadProjects(){
   for (let i = 0 ; i < projectsArray.length ; i++)
   {
-    const projectList = document.querySelector('.project-list');
-    const projectName = document.createElement('h5');
+    let projectList = document.querySelector('.project-list');
+    let projectName = document.createElement('h5');
     projectName.innerText = projectsArray[i].title;
     projectName.classList = 'text-center text-dark bg-warning border border-light rounded m-1 p-1 project-name-card';
-    projectName.addEventListener('click', () => {
-      taskList()
-      const tasks = document.querySelector('#new-task-card');
-      const proj = document.querySelector('#new-project-task');
-      proj.textContent = projectsArray[i].title;
-      tasks.classList.remove('hide');
-      document.querySelector('#new-project-section').classList.add('hide');
-      document.querySelector('#new-project-section').classList.remove('show');
-      tasks.classList.add('show');
-    });
     projectList.appendChild(projectName);
   }
 }
-
 
 // Create Task list inside the project:
  export function taskList(){
@@ -94,32 +97,58 @@ export function printProject() {
   taskCardDiv.appendChild(taskCardPriority);
   
   // Loop to create task cards:
-  // for (let task of project.taskArray)
-
-  if (project) {
-  for (let i = 0 ; i < projectsArray.length ; i++)
+  for (let task of project.taskArray)
+ 
   {
-    taskCardHeader.innerText = `Task Title : ${projectsArray[i].taskArray[i].title}`;
-    taskCardDescription.innerText = `Task Details: ${projectsArray[i].taskArray[i].description}`;
-    taskCardDate.innerText = `Due date : ${projectsArray[i].taskArray[i].dueDate}` 
-    if (projectsArray[i].taskArray[i].priority === "1")
+    taskCardHeader.innerText = `Task Title : ${task.title}`;
+    taskCardDescription.innerText = `Task Details: ${task.description}`;
+    taskCardDate.innerText = `Due date : ${task.dueDate}` 
+    if (task.priority === "1")
      {
       taskCardPriority.innerText = "Not That Important";
       taskCardPriority.classList.add('bg-light');
       taskCardPriority.classList.remove('bg-danger', 'bg-warning')
     }
-     else if (projectsArray[i].taskArray[i].priority === "2") 
+     else if (task.priority.priority === "2") 
      {
       taskCardPriority.innerText = "Important";
       taskCardPriority.classList.add('bg-warning');
       taskCardPriority.classList.remove('bg-danger', 'bg-light')
     } 
-    else if (projectsArray[i].taskArray[i].priority === "3")  {
+    else if (task.priority.priority === "3")  {
       taskCardPriority.innerText = "Very Important";
       taskCardPriority.classList.add('bg-danger');
       taskCardPriority.classList.remove('bg-warning', 'bg-light')
     }
-   } }
+    }
   }
 
 export default projectsArray;
+
+
+// const projectCards = document.querySelectorAll('.project-name-card')
+
+
+
+   // projectName.addEventListener('click', () => {
+    //   taskList()
+    //   const tasks = document.querySelector('#new-task-card');
+    //   const proj = document.querySelector('#new-project-task');
+    //   proj.textContent = projectsArray[i].title;
+    //   tasks.classList.remove('hide');
+    //   document.querySelector('#new-project-section').classList.add('hide');
+    //   document.querySelector('#new-project-section').classList.remove('show');
+    //   tasks.classList.add('show');
+    // });
+
+
+       // projectName.addEventListener('click', () => {
+    //   taskList()
+    //   const tasks = document.querySelector('#new-task-card');
+    //   const proj = document.querySelector('#new-project-task');
+    //   proj.textContent = projectsArray[i].title;
+    //   tasks.classList.remove('hide');
+    //   document.querySelector('#new-project-section').classList.add('hide');
+    //   document.querySelector('#new-project-section').classList.remove('show');
+    //   tasks.classList.add('show');
+    // });

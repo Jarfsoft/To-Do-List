@@ -1,9 +1,10 @@
-import {addNewProject , projectsArray , printProject , taskList , Builder }  from './createProject';
+import {addNewProject , projectsArray , printProject , taskList , loadProjects }  from './createProject';
 import {newTask , clearInputs} from './createTask';
 
-printProject();
+// printProject();
 // taskList()
 
+loadProjects()
 // Declatre main elements: 
 const newProjectBtn = document.querySelector('#new-project-btn');
 const newProjectSection = document.querySelector('#new-project-section');
@@ -81,3 +82,9 @@ newTaskBtn.addEventListener('click', () => {
 });
 
 
+
+// const projectCards = document.querySelectorAll('.project-name-card');
+
+// projectCards.addEventListener('click' , (e) => {
+//   e.target.style.fontSize = '50px'
+// })
