@@ -58,6 +58,9 @@ export function loadProjects(){
     projectName.innerText = projectsArray[i].title;
     projectName.classList = 'text-center text-dark bg-warning border border-light rounded m-1 p-1 project-name-card';
     projectList.appendChild(projectName);
+  //     const project = projectsArray.find(name => name.title == title);
+  // const index = projectsArray.indexOf(project);
+    // loadTasks(i)
   }
 }
 
@@ -126,25 +129,24 @@ export function loadTasks(index){
   { 
   // Create elemetns:
   const taskMainDiv = document.createElement('div');
-document.querySelector('.col-6').appendChild(taskMainDiv);
-taskMainDiv.classList = 'card m-1 task-card';
   const taskCardHeader = document.createElement('div');
   const taskCardDiv = document.createElement('div');
   const taskCardTitle = document.createElement('h1');
   const taskCardDescription = document.createElement('p');
   const taskCardDate =  document.createElement('p');
-  const taskCardPriority = document.createElement('div')
+  const taskCardPriority = document.createElement('div');
+
   // Style
- 
+  taskMainDiv.classList = 'card m-1 task-card';
   taskCardHeader.classList = 'card-header bg-primary';
   taskCardDiv.classList = 'card-body';
   taskCardTitle.classList = 'card-title';
   taskCardDescription.classList = 'card-text';
   taskCardDate.classList = 'card-text';
-  taskCardPriority.classList = 'card-body'
+  taskCardPriority.classList = 'card-body';
 
   // Structure:
- 
+  document.querySelector('.col-6').appendChild(taskMainDiv);
   taskMainDiv.appendChild(taskCardHeader);
   taskMainDiv.appendChild(taskCardDiv);
   taskCardDiv.appendChild(taskCardTitle);
