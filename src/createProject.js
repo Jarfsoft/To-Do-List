@@ -128,7 +128,7 @@ export function loadTasks(index){
       taskCardPriority.classList.add('bg-danger');
       taskCardPriority.classList.remove('bg-warning', 'bg-light')
     }
-    taskCardEdit.addEventListener('click', function() {
+    taskCardEdit.addEventListener('click', () => {
       document.querySelector('#edit-task-div').classList.remove('hide');
       const editTaskBtn = document.querySelector('#edit-task-btn');
       editTaskBtn.addEventListener('click', () => {
@@ -155,6 +155,11 @@ export function loadTasks(index){
         }
       })
       
+    });
+    taskCardDelete.addEventListener('click' , ()=> {
+      projectsArray[index].taskArray.splice(index , 1);
+      saveProject();
+      taskMainDiv.remove();
     })
   }
 }
