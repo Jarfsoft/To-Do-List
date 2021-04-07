@@ -51,7 +51,7 @@ newTaskSection.classList.add('hide');
 // 2- Add the project
 addProjectBtn.addEventListener('click' , ()=>{
   const title = document.querySelector('#project-title').value;
-  const isPresent = (element) => element.title === title;
+  const isPresent = (project) => project.title === title;
   if (projectsArray.some(isPresent)) {
     titleRequired.innerText = "The name of the project is present before!";
     titleRequired.classList.add('show');

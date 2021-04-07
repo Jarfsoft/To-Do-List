@@ -1,7 +1,7 @@
 import newTask from './createTask';
 
 export let projectsArray = [];
-if(localStorage.length != 0)
+if (localStorage.length != 0)
 {
   projectsArray = JSON.parse(localStorage.getItem("array"));
   console.log(projectsArray);
@@ -58,14 +58,8 @@ export function loadProjects(){
     projectName.innerText = projectsArray[i].title;
     projectName.classList = 'text-center text-dark bg-warning border border-light rounded m-1 p-1 project-name-card';
     projectList.appendChild(projectName);
-  //     const project = projectsArray.find(name => name.title == title);
-  // const index = projectsArray.indexOf(project);
-    // loadTasks(i)
   }
 }
-
-
-
 
 // Create New Task  inside the project:
  export function taskList(title , description , dueDate , priority){
@@ -178,9 +172,13 @@ export function loadTasks(index){
 
 }
 
-export function showTaks(){
-taskMainDiv.classList.remove('hide')
+// Here i am trying to make a function to eliminate all other tasks
+export function hideTaks(index){
+  let otherProjectsArray = projectsArray.splice(projectsArray[index] , 1)
+  console.log(otherProjectsArray)
 }
+
+
 
 
 export default projectsArray;
