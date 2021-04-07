@@ -10,11 +10,13 @@ const newTaskSection = document.querySelector('#new-task-card')
 const newTaskBtn = document.querySelector('#add-task-btn');
 const fieldsRequired = document.querySelector('#required-fields');
 const titleRequired = document.querySelector('#required-title');
+const editTaskDiv = document.querySelector('#edit-task-div');
 
 fieldsRequired.classList.add('hide');
 titleRequired.classList.add('hide');
 newProjectSection.classList.add('hide');
 newTaskSection.classList.add('hide');
+editTaskDiv.classList.add('hide')
 
 function makeLoop() {
   const projectCards = document.querySelectorAll('.project-name-card');
@@ -103,3 +105,5 @@ newTaskBtn.addEventListener('click', () => {
     fieldsRequired.classList.remove('show');
   }
 });
+
+

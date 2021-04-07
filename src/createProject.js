@@ -77,6 +77,8 @@ export function loadTasks(index){
     const taskCardDescription = document.createElement('p');
     const taskCardDate =  document.createElement('p');
     const taskCardPriority = document.createElement('div');
+    const taskCardEdit = document.createElement('button');
+    const taskCardDelete = document.createElement('button');
 
     // Style
     taskMainDiv.classList = 'card m-1 task-card task-box';
@@ -86,6 +88,8 @@ export function loadTasks(index){
     taskCardDescription.classList = 'card-text';
     taskCardDate.classList = 'card-text';
     taskCardPriority.classList = 'card-body';
+    taskCardEdit.classList = 'btn btn-secondary p-1 m-1 edit-task';
+    taskCardDelete.classList = 'btn btn-danger p-1 m-1 delete-task'
 
     // Structure:
     document.querySelector('.col-6').appendChild(taskMainDiv);
@@ -95,8 +99,15 @@ export function loadTasks(index){
     taskCardDiv.appendChild(taskCardDescription);
     taskCardDiv.appendChild(taskCardDate);
     taskCardDiv.appendChild(taskCardPriority);
+    taskCardDiv.appendChild(taskCardEdit);
+    taskCardDiv.appendChild(taskCardDelete);
+    
+
+   
 
     // Fill the data
+    taskCardEdit.innerText = 'Edit This Task';
+    taskCardDelete.innerText = 'Delete This Task';
     taskCardHeader.innerText = `Task Title : ${task.title}`;
     taskCardDescription.innerText = `Task Details: ${task.description}`;
     taskCardDate.innerText = `Due date : ${task.dueDate}` ;
@@ -117,7 +128,47 @@ export function loadTasks(index){
       taskCardPriority.classList.add('bg-danger');
       taskCardPriority.classList.remove('bg-warning', 'bg-light')
     }
+    taskCardEdit.addEventListener('click', function() {
+      document.querySelector('#edit-task-div').classList.remove('hide');
+      const editTaskBtn = document.querySelector('#edit-task-btn');
+      editTaskBtn.addEventListener('click', () => {
+        alert('hello')
+        editTask(task);
+        saveProject();
+        taskCardHeader.innerText = `Task Title : ${task.title}`;
+        taskCardDescription.innerText = `Task Details: ${task.description}`;
+        taskCardDate.innerText = `Due date : ${task.dueDate}`;
+        if (task.priority === "1") {
+          taskCardPriority.innerText = "Not That Important";
+          taskCardPriority.classList.add('bg-light');
+          taskCardPriority.classList.remove('bg-danger', 'bg-warning')
+        }
+        else if (task.priority === "2") {
+          taskCardPriority.innerText = "Important";
+          taskCardPriority.classList.add('bg-warning');
+          taskCardPriority.classList.remove('bg-danger', 'bg-light')
+        }
+        else if (task.priority === "3") {
+          taskCardPriority.innerText = "Very Important";
+          taskCardPriority.classList.add('bg-danger');
+          taskCardPriority.classList.remove('bg-warning', 'bg-light')
+        }
+      })
+      
+    })
   }
+}
+
+
+function editTask(task) {
+  const editTitle = document.querySelector('#task-title-edit');
+  const editDes = document.querySelector('#task-description-edit');
+  const editDate = document.querySelector('#dueDate-edit');
+  const editPriority = document.querySelector('#priority-edit');
+  task.title = editTitle.value;
+  task.description = editDes.value;
+  task.dueDate = editDate.value;
+  task.priority = editPriority.value
 }
 
 export default projectsArray;

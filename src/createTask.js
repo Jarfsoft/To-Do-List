@@ -17,6 +17,8 @@ export function newTask(){
   return newT;
 }
 
+
+
 export function clearInputs(){
   document.querySelector('#task-title').value = '';
   document.querySelector('#task-description').value = '';
