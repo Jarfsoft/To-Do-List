@@ -26,18 +26,18 @@
          </div>
          <div class="col-6 ">
            <div class="card" id="new-task-card">
-               <div class="card-body">
+               <div class="card-body d-flex flex-column text-center bg-light">
                  <h5 id="new-project-task" class="card-title"></h5>
-                  <h5 class="card-title">New Task</h5>
-                  <input id="task-title" class="task-title-input " type="text" placeholder="Task Title" required>
-                  <input id="task-description" type="text" placeholder="Description" required>
-                  <input id="dueDate" type="date" required>
-                  <select id="priority" required>
+                  <h5 class="card-title">Add New Task</h5>
+                  <input id="task-title" class="task-title-input m-1" type="text" placeholder="Task Title" required>
+                  <input id="task-description" type="text" class="m-1" placeholder="Description" required>
+                  <input id="dueDate" class="m-1" type="date" required>
+                  <select id="priority" required class="m-1">
                       <option value="3">Very Important</option>
                       <option value="2">Important</option>
                       <option value="1">Not That Important</option>
                   </select>
-                  <a class="card-link btn btn-success" id="add-task-btn">Add Task</a>
+                  <a class="card-link btn  btn-success m-1 p-1" id="add-task-btn">Add Task</a>
                   <h5 class="text-danger" id="required-fields">All fields are required</h5>
               </div>
            </div>
@@ -52,17 +52,17 @@
          </div>
            <div class="col-3 border rounded text-center p-2">
             <button class="btn btn-primary" id="new-project-btn">Add New Project</button>
-            <div class="card" id="edit-task-div">
-              <h5 class="card-title"> Edit Task </h5>
-                <input id="task-title-edit" class="task-title-input " type="text" placeholder="Task Title" required>
-                  <input id="task-description-edit" type="text" placeholder="Description" required>
-                  <input id="dueDate-edit" type="date" required>
-                  <select id="priority-edit" required>
+            <div class="card d-flex flex-column mt-2 p-1" id="edit-task-div">
+              <h5 class="card-title my-2"> Edit Task </h5>
+                <input id="task-title-edit" class="task-title-input my-2 " type="text" placeholder="Task Title" required>
+                  <input id="task-description-edit" type="text" class="my-2" placeholder="Description" required>
+                  <input id="dueDate-edit" class="my-2" type="date" required>
+                  <select id="priority-edit" class="my-2" required>
                       <option value="3">Very Important</option>
                       <option value="2">Important</option>
                       <option value="1">Not That Important</option>
                   </select>
-                  <button class="btn btn-secondary" id="edit-task-btn">Edit</button>
+                  <button class="btn btn-secondary m-1 p-1" id="edit-task-btn">Edit</button>
                   <h5 class="text-danger hide" id="required-fields-edit-task">All fields are required</h5>
             </div>
          </div>

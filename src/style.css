@@ -3,7 +3,7 @@ body{
 }
 
 .project-list{
-  height:100vh;
+  height: max-content;
 }
 
 .project-title-input{

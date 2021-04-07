@@ -134,7 +134,7 @@ export function loadTasks(index){
       editTaskBtn.addEventListener('click', () => {
         editTask(task);
         saveProject();
-        document.querySelector('#edit-task-div').classList.add('hide');
+        
         taskCardHeader.innerText = `Task Title : ${task.title}`;
         taskCardDescription.innerText = `Task Details: ${task.description}`;
         taskCardDate.innerText = `Due date : ${task.dueDate}`;
@@ -175,6 +175,7 @@ function editTask(task) {
     requiredFields.classList.add('show');
     requiredFields.classList.remove('hide')
   } else {
+  document.querySelector('#edit-task-div').classList.add('hide');
   requiredFields.classList.add('hide');
   requiredFields.classList.remove('show')
   task.title = editTitle.value;
