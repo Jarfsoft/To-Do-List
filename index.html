@@ -52,6 +52,18 @@
          </div>
            <div class="col-3 border rounded text-center p-2">
             <button class="btn btn-primary" id="new-project-btn">Add New Project</button>
+            <div class="card" id="edit-task-div">
+              <h5 class="card-title"> Edit Task </h5>
+                <input id="task-title-edit" class="task-title-input " type="text" placeholder="Task Title" required>
+                  <input id="task-description-edit" type="text" placeholder="Description" required>
+                  <input id="dueDate-edit" type="date" required>
+                  <select id="priority-edit" required>
+                      <option value="3">Very Important</option>
+                      <option value="2">Important</option>
+                      <option value="1">Not That Important</option>
+                  </select>
+                  <button class="btn btn-secondary" id="edit-task-btn">Edit</button>
+            </div>
          </div>
      </div>
   </div>
