@@ -1,12 +1,12 @@
-body{
+body {
   background-color: aqua;
 }
 
-.project-list{
+.project-list {
   height: max-content;
 }
 
-.project-title-input{
+.project-title-input {
   height: 35px;
 }
 
@@ -14,13 +14,13 @@ body{
   visibility: hidden;
 }
 
-.show{
+.show {
   visibility: visible;
 }
 
-.project-name-card:hover{
+.project-name-card:hover {
   cursor: pointer;
-  background-color: green  !important;
-  color: white  !important;
+  background-color: green !important;
+  color: white !important;
   transition: 0.5s;
 }
