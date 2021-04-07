@@ -1,10 +1,9 @@
-import {addNewProject , projectsArray , printProject , taskList , loadProjects }  from './createProject';
-import {newTask , clearInputs} from './createTask';
+import {addNewProject , projectsArray , printProject , taskList , loadProjects , loadTasks , showTaks}  from './createProject';
+import {newTask , clearInputs } from './createTask';
 
-// printProject();
-// taskList()
+// Run Main Functions:
+loadProjects();
 
-loadProjects()
 // Declatre main elements: 
 const newProjectBtn = document.querySelector('#new-project-btn');
 const newProjectSection = document.querySelector('#new-project-section');
@@ -13,9 +12,7 @@ const newTaskSection = document.querySelector('#new-task-card')
 const newTaskBtn = document.querySelector('#add-task-btn');
 const fieldsRequired = document.querySelector('#required-fields');
 const titleRequired = document.querySelector('#required-title');
-
-
-
+const projectCards = document.querySelectorAll('.project-name-card');
 
 // Style
 fieldsRequired.classList.add('hide');
@@ -23,6 +20,24 @@ titleRequired.classList.add('hide');
 newProjectSection.classList.add('hide');
 newTaskSection.classList.add('hide');
 
+function makeLoop() {
+  for (let card of projectCards) {
+  card.addEventListener('click' , ()=> {
+      const taskCard = document.querySelector('#new-task-card');
+      const projectTitleInTaskCard = document.querySelector('#new-project-task');
+      projectTitleInTaskCard.textContent = card.innerText;
+      taskCard.classList.remove('hide');
+      document.querySelector('#new-project-section').classList.add('hide');
+      document.querySelector('#new-project-section').classList.remove('show');
+      taskCard.classList.add('show');
+      const project = projectsArray.find(name => name.title == projectTitleInTaskCard.textContent);
+      // console.log(projectsArray.indexOf(project));
+      const index = projectsArray.indexOf(project);
+      loadTasks(index);
+     }) 
+}}
+
+makeLoop();
 
 // Events
 // 1- Add new project btn:
@@ -49,8 +64,8 @@ addProjectBtn.addEventListener('click' , ()=>{
   newProjectSection.classList.remove('show');
   document.querySelector('#project-title').value = '';
   }
+  
 })
-
 
 
 // 3- Add new task:
@@ -69,12 +84,12 @@ newTaskBtn.addEventListener('click', () => {
     project.taskArray.push(newTask());
     localStorage.clear();
     localStorage.setItem('array', JSON.stringify(projectsArray));
+    taskList(title , description , dueDate , priority);
     // project.addTask();
     // let storageTask = JSON.parse(localStorage.getItem(projectName))
     // storageTask.taskArray.push(project.taskArray);
     // localStorage.setItem(projectName, storageTask)
     clearInputs();
-    taskList();
     // console.log(project.taskArray);
     fieldsRequired.classList.add('hide');
     fieldsRequired.classList.remove('show');
@@ -83,8 +98,6 @@ newTaskBtn.addEventListener('click', () => {
 
 
 
-// const projectCards = document.querySelectorAll('.project-name-card');
 
-// projectCards.addEventListener('click' , (e) => {
-//   e.target.style.fontSize = '50px'
-// })
+
+
