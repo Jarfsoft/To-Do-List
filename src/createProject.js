@@ -132,9 +132,9 @@ export function loadTasks(index){
       document.querySelector('#edit-task-div').classList.remove('hide');
       const editTaskBtn = document.querySelector('#edit-task-btn');
       editTaskBtn.addEventListener('click', () => {
-        alert('hello')
         editTask(task);
         saveProject();
+        document.querySelector('#edit-task-div').classList.add('hide');
         taskCardHeader.innerText = `Task Title : ${task.title}`;
         taskCardDescription.innerText = `Task Details: ${task.description}`;
         taskCardDate.innerText = `Due date : ${task.dueDate}`;
@@ -170,10 +170,18 @@ function editTask(task) {
   const editDes = document.querySelector('#task-description-edit');
   const editDate = document.querySelector('#dueDate-edit');
   const editPriority = document.querySelector('#priority-edit');
+  const requiredFields = document.querySelector('#required-fields-edit-task');
+  if (!editTitle.value || !editDes.value || !editDate.value || !editPriority.value) {
+    requiredFields.classList.add('show');
+    requiredFields.classList.remove('hide')
+  } else {
+  requiredFields.classList.add('hide');
+  requiredFields.classList.remove('show')
   task.title = editTitle.value;
   task.description = editDes.value;
   task.dueDate = editDate.value;
-  task.priority = editPriority.value
+  task.priority = editPriority.value 
+}
 }
 
 export default projectsArray;
