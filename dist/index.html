@@ -1,61 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>To Do List</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
-       <nav class="navbar navbar-light bg-light">
-       <div class="container-fluid">
-       <a class="navbar-brand text-dark h1">
-        TO DO LIST
-       </a>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand text-dark h1">
+            TO DO LIST
+          </a>
         </div>
-    </nav>
+      </nav>
     </header>
 
     <div class="container">
-        <div class="row m-2 p-2 border">
-            <div class="col-3 bg-dark project-list d-flex flex-column rounded p-2">
-                <h5 class="text-warning text-center p-2">Project's List</h5>
-            </div>
-            <div class="col-6 ">
-              <div class="card" id="new-task-card">
-                  <div class="card-body">
-                    <h5 id="new-project-task" class="card-title"></h5>
-                     <h5 class="card-title">New Task</h5>
-                     <input id="task-title" class="task-title-input " type="text" placeholder="Task Title" required>
-                     <input id="task-description" type="text" placeholder="Description" required>
-                     <input id="dueDate" type="date" required>
-                     <select id="priority" required>
-                         <option value="3">Very Important</option>
-                         <option value="2">Important</option>
-                         <option value="1">Not That Important</option>
-                     </select>
-                     <a class="card-link btn btn-success" id="add-task-btn">Add Task</a>
-                     <h5 class="text-danger" id="required-fields">All fields are required</h5>
-                 </div>
+      <div class="row m-2 p-2 border">
+         <div id="project-container" class="col-3 bg-dark project-list d-flex flex-column rounded p-2">
+             <h5 class="text-warning text-center p-2">Project's List</h5>
+         </div>
+         <div class="col-6 ">
+           <div class="card" id="new-task-card">
+               <div class="card-body">
+                 <h5 id="new-project-task" class="card-title"></h5>
+                  <h5 class="card-title">New Task</h5>
+                  <input id="task-title" class="task-title-input " type="text" placeholder="Task Title" required>
+                  <input id="task-description" type="text" placeholder="Description" required>
+                  <input id="dueDate" type="date" required>
+                  <select id="priority" required>
+                      <option value="3">Very Important</option>
+                      <option value="2">Important</option>
+                      <option value="1">Not That Important</option>
+                  </select>
+                  <a class="card-link btn btn-success" id="add-task-btn">Add Task</a>
+                  <h5 class="text-danger" id="required-fields">All fields are required</h5>
               </div>
-              <div class="card text-center" id="new-project-section">
-                  <div class="card-body">
-                     <h5 class="card-title">New Project</h5>
-                     <input id="project-title" class="project-title-input " type="text" placeholder="Project Title">
-                     <a class="card-link btn btn-success" id="add-project-btn">Add Project</a>
-                     <h5 class="text-danger" id="required-title">Title is required</h5>
-                 </div>
+           </div>
+           <div class="card text-center" id="new-project-section">
+               <div class="card-body">
+                  <h5 class="card-title">New Project</h5>
+                  <input id="project-title" class="project-title-input " type="text" placeholder="Project Title">
+                  <a class="card-link btn btn-success" id="add-project-btn">Add Project</a>
+                  <h5 class="text-danger" id="required-title">Title is required</h5>
               </div>
-            </div>
-              <div class="col-3 border rounded text-center p-2">
-               <button class="btn btn-primary" id="new-project-btn">Add New Project</button>
-            </div>
-        </div>
-    </div>
-    <script src="main.js"> </script>
-</body>
+           </div>
+         </div>
+           <div class="col-3 border rounded text-center p-2">
+            <button class="btn btn-primary" id="new-project-btn">Add New Project</button>
+         </div>
+     </div>
+  </div>
+  <script src="main.js"> </script>
+  </body>
 </html>
