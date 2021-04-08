@@ -1,8 +1,8 @@
 import {
-  addNewProject, projectsArray, addTask
+  addNewProject, projectsArray, addTask,
 } from './createProject';
 import {
-  loadProjects , loadTasks,
+  loadProjects, loadTasks,
 } from './createProDom';
 import { newTask, clearInputs } from './createTaskDom';
 

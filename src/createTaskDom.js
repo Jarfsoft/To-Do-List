@@ -16,4 +16,3 @@ export function newTask() {
   clearInputs();
   return newT;
 }
-

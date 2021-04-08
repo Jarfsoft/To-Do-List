@@ -1,4 +1,4 @@
-import { setProjects, saveProject, projectsArray} from './createProject';
+import { setProjects, saveProject, projectsArray } from './createProject';
 
 export function printProject() {
   const title = document.querySelector('#project-title').value;
