@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Javascript Library
+# Javascript TO DO List
 
 >This is a web application created with simple HTML, CSS and JavaScript code for educational purposes. This app will let you create projects and attach a list of tasks to it in order to acomplish the projects. You will be able to edit or delete the task once you add them. The data you insert will be saved in localstorage so it can remain in your computer even if you refresh the webpage.
 
@@ -11,9 +11,7 @@
 - Bootstrap
 - Javascript
 
-## Live Demo
 
-[Live Demo Link](https://alansoto31.github.io/Library/)
 
 ## Getting Started
 

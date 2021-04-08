@@ -1,7 +1,10 @@
 import {
-  addNewProject, projectsArray, addTask, loadProjects, loadTasks,
+  addNewProject, projectsArray, addTask
 } from './createProject';
-import { newTask, clearInputs } from './createTask';
+import {
+  loadProjects , loadTasks,
+} from './createProDom';
+import { newTask, clearInputs } from './createTaskDom';
 
 loadProjects();
 
@@ -68,7 +71,7 @@ addProjectBtn.addEventListener('click', () => {
   } else {
     titleRequired.classList.add('hide');
     titleRequired.classList.remove('show');
-    addNewProject();
+    addNewProject(title);
     loadProjects();
     newProjectSection.classList.add('hide');
     newProjectSection.classList.remove('show');
