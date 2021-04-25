@@ -1,11 +1,10 @@
-export const projectsArray = [];
+/* eslint-disable import/no-mutable-exports */
+
+export let projectsArray = [];
 
 export function setProjects() {
-  if (localStorage.length !== 0) {
-    const temp = JSON.parse(localStorage.getItem('array'));
-    projectsArray.splice(0, projectsArray.length);
-    for (let i = 0; i < temp.length; i += 1) projectsArray.push(temp[i]);
-  }
+  const temp = JSON.parse(localStorage.getItem('array') || '[]');
+  projectsArray = temp;
 }
 
 export class Builder {
@@ -16,7 +15,8 @@ export class Builder {
 }
 
 export function saveProject() {
-  localStorage.clear();
+  const locals = JSON.parse(localStorage.getItem('array') || '[]');
+  locals.push(projectsArray);
   localStorage.setItem('array', JSON.stringify(projectsArray));
 }
 
@@ -30,6 +30,3 @@ export function addTask(project, task) {
   project.taskArray.push(task);
   saveProject();
 }
-
-
-export default projectsArray;

@@ -25,7 +25,7 @@
             
          </div>
          <div class="col-6 ">
-           <div class="card" id="new-task-card">
+           <div class="card hide" id="new-task-card">
                <div class="card-body d-flex flex-column text-center bg-light">
                  <h5 id="new-project-task" class="card-title"></h5>
                   <h5 class="card-title">Add New Task</h5>
@@ -38,21 +38,21 @@
                       <option value="1">Not That Important</option>
                   </select>
                   <a class="card-link btn  btn-success m-1 p-1" id="add-task-btn">Add Task</a>
-                  <h5 class="text-danger" id="required-fields">All fields are required</h5>
+                  <h5 class="text-danger hide" id="required-fields">All fields are required</h5>
               </div>
            </div>
-           <div class="card text-center" id="new-project-section">
+           <div class="card text-center hide" id="new-project-section">
                <div class="card-body">
                   <h5 class="card-title">New Project</h5>
                   <input id="project-title" class="project-title-input " type="text" placeholder="Project Title">
                   <a class="card-link btn btn-success" id="add-project-btn">Add Project</a>
-                  <h5 class="text-danger" id="required-title">Title is required</h5>
+                  <h5 class="text-danger hide" id="required-title">Title is required</h5>
               </div>
            </div>
          </div>
            <div class="col-3 border rounded text-center p-2">
             <button class="btn btn-primary" id="new-project-btn">Add New Project</button>
-            <div class="card d-flex flex-column mt-2 p-1" id="edit-task-div">
+            <div class="card d-flex flex-column mt-2 p-1 hide" id="edit-task-div">
               <h5 class="card-title my-2"> Edit Task </h5>
                 <input id="task-title-edit" class="task-title-input my-2 " type="text" placeholder="Task Title" required>
                   <input id="task-description-edit" type="text" class="my-2" placeholder="Description" required>
