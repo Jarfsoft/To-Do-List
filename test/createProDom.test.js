@@ -4,7 +4,6 @@ import {
 import { setProjects } from '../src/createProject';
 
 describe('Test Project Dom file', () => {
-
   test('Edit Task', () => {
     document.body.innerHTML = `
      <div id="edit-task-div">
