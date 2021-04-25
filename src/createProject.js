@@ -8,7 +8,7 @@ export function setProjects() {
   }
 }
 
-class Builder {
+export class Builder {
   constructor(title) {
     this.title = title;
     this.taskArray = [];
